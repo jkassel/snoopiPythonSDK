@@ -32,13 +32,6 @@ The other method is to [download](https://github.com/jkassel/snoopiPythonSDK/arc
 git clone https://github.com/jkassel/snoopiPythonSDK.git 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [urllib3](https://urllib3.readthedocs.io/en/latest/) - HTTP web client
@@ -61,8 +54,126 @@ This will give you a list of zip codes in a specified radius of an origin zip co
 
 **Response**:
 array of zip codes
-[*string*, *string*,...]
+["string", "string",...]
 
+
+### get_location_by_ip
+This will give you location information based on a supplied IP address
+
+**Usage**: get_location_by_ip(ip_address)
+
+#### parameters:
+
+| parameter | data_type | required | default |
+| --------- | --------- | -------- | ------- |
+| ip_address | *string* | YES | None |
+
+
+**Response**:
+```json
+{
+    CountryCode: "string",
+    CountryName: "string",
+    GeoID: number,
+    State: "string",
+    StateCode: "string",
+    City: "string",
+    Postal: "string",
+    Latitude: float,
+    Longitude: float,
+    RequestTime: int,
+    RequestedIP: "string"
+}
+```
+
+### get_zip_code_distance
+Gives you the distance between two zip codes
+
+**Usage**: get_zip_code_distance(start_zip_code, end_zip_code):
+
+#### parameters:
+
+| parameter | data_type | required | default |
+| --------- | --------- | -------- | ------- |
+| start_zip_code | *string* | YES | None |
+| end_zip_code | *string* | YES | None |
+
+
+**Response**:
+```json
+{
+    miles: float
+    kilometers: float
+}
+```
+
+### get_states
+Displays a list of US states
+
+**Usage**: get_states():
+
+#### parameters:
+None
+
+**Response**: an array of dictionaries
+```json
+[
+    {
+        id: int,
+        code: "string",
+        name: "string"
+    },
+    {...}
+]
+```
+
+### get_state_abbreviation
+Gives you the distance between two zip codes
+
+**Usage**: get_state_abbreviation(state):
+
+#### parameters:
+
+| parameter | data_type | required | default |
+| --------- | --------- | -------- | ------- |
+| state| *string* | YES | None |
+
+
+**Response**:
+```json
+{
+  code: "string",
+  name: "string"
+}
+```
+
+### get_cities
+Gives you the distance between two zip codes
+
+**Usage**: get_cities([state_abbreviation]):
+
+#### parameters:
+
+| parameter | data_type | required | default |
+| --------- | --------- | -------- | ------- |
+| state_abbreviation | *string* | NO | None |
+
+
+**Response**:
+```json
+[
+  {
+    id: int,
+    zip_code: "string",
+    state_prefix: "string",
+    city: "string",
+    county: "string",
+    lon: "string",
+    lat: "string"
+  },
+  {...}
+]
+```
 
 ## Example
 ```python3
