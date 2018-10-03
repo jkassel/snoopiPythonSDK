@@ -72,17 +72,17 @@ This will give you location information based on a supplied IP address
 **Response**:
 ```json
 {
-    CountryCode: "string",
-    CountryName: "string",
-    GeoID: number,
-    State: "string",
-    StateCode: "string",
-    City: "string",
-    Postal: "string",
-    Latitude: float,
-    Longitude: float,
-    RequestTime: int,
-    RequestedIP: "string"
+    "CountryCode": "string",
+    "CountryName": "string",
+    "GeoID": "number",
+    "State": "string",
+    "StateCode": "string",
+    "City": "string",
+    "Postal": "string",
+    "Latitude": "float",
+    "Longitude": "float",
+    "RequestTime": "int",
+    "RequestedIP": "string"
 }
 ```
 
@@ -102,8 +102,8 @@ Gives you the distance between two zip codes
 **Response**:
 ```json
 {
-    miles: float
-    kilometers: float
+    "miles": "float"
+    "kilometers": "float"
 }
 ```
 
@@ -119,11 +119,11 @@ None
 ```json
 [
     {
-        id: int,
-        code: "string",
-        name: "string"
+        "id": "int",
+        "code": "string",
+        "name": "string"
     },
-    {...}
+    {"...": "..."}
 ]
 ```
 
@@ -142,8 +142,8 @@ Gives you the distance between two zip codes
 **Response**:
 ```json
 {
-  code: "string",
-  name: "string"
+  "code": "string",
+  "name": "string"
 }
 ```
 
@@ -163,15 +163,15 @@ Gives you the distance between two zip codes
 ```json
 [
   {
-    id: int,
-    zip_code: "string",
-    state_prefix: "string",
-    city: "string",
-    county: "string",
-    lon: "string",
-    lat: "string"
+    "id": "int",
+    "zip_code": "string",
+    "state_prefix": "string",
+    "city": "string",
+    "county": "string",
+    "lon": "string",
+    "lat": "string"
   },
-  {...}
+  {"...": "..."}
 ]
 ```
 
