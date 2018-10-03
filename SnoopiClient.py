@@ -60,4 +60,10 @@ class SnoopiClient:
         result = self.call_api(api_url, params)
         return result
 
+    def get_location_by_ip(self, ip_address):
+        api_url = "ip/"
+        params = ip_address
+        result = self.call_api(api_url, params)
+        return result
+
 
