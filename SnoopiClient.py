@@ -88,6 +88,9 @@ class SnoopiClient:
 
     def get_cities(self, state_abbreviation=None):
         api_url = "getcities/"
-        params = state_abbreviation
-        result = self.call_api(api_url, params)
+        if state_abbreviation is not None:
+            params = state_abbreviation
+            result = self.call_api(api_url, params)
+        else:
+            result = self.call_api(api_url)
         return result

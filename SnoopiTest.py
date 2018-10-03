@@ -22,7 +22,7 @@ result = my_api.get_states()
 print(result)
 
 # get state abbreviation
-state = "NY"
+state = "New York"
 result = my_api.get_state_abbreviation(state)
 print(result)
 
@@ -31,7 +31,7 @@ result = my_api.get_cities()
 print(result)
 
 # get a list of cities in New York
-state_abbreviation = "New York"
+state_abbreviation = "NY"
 result = my_api.get_cities(state_abbreviation)
 print(result)
 
