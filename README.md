@@ -102,7 +102,7 @@ Gives you the distance between two zip codes
 **Response**:
 ```json
 {
-    "miles": "float"
+    "miles": "float",
     "kilometers": "float"
 }
 ```
