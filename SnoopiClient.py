@@ -16,11 +16,14 @@ class SnoopiClient:
         self.logger.setLevel(logging_level)
         logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-    def call_api(self, api_url, api_params, retry_count=1, max_retries=3, sleep_time=2, req_type='get', headers={}, data={}):
+    def call_api(self, api_url, api_params=None, retry_count=1, max_retries=3, sleep_time=2, req_type='get', headers={}, data={}):
         base_url = "http://api.snoopi.io/v1/"
         api_key_suffix = "?api_key={}".format(self.api_key)
 
-        url = base_url + api_url + api_params + api_key_suffix
+        if api_params is not None:
+            url = base_url + api_url + api_params + api_key_suffix
+        else:
+            url = base_url + api_url + api_key_suffix
 
         response = ''
 
@@ -66,4 +69,25 @@ class SnoopiClient:
         result = self.call_api(api_url, params)
         return result
 
+    def get_zip_code_distance(self, start_zip_code, end_zip_code):
+        api_url = "zipcodedistance/"
+        params = start_zip_code + "-" + end_zip_code
+        result = self.call_api(api_url, params)
+        return result
 
+    def get_states(self):
+        api_url = "getstates/"
+        result = self.call_api(api_url)
+        return result
+
+    def get_state_abbreviation(self, state):
+        api_url = "getstates/"
+        params = state
+        result = self.call_api(api_url, params)
+        return result
+
+    def get_cities(self, state_abbreviation=None):
+        api_url = "getcities/"
+        params = state_abbreviation
+        result = self.call_api(api_url, params)
+        return result
