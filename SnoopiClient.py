@@ -10,10 +10,10 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class SnoopiClient:
 
-    def __init__(self, api_key=None, debug_level=logging.ERROR):
+    def __init__(self, api_key=None, logging_level=logging.ERROR):
         self.api_key = api_key
         self.logger = logging.getLogger("SnoopiClient")
-        self.logger.setLevel(debug_level)
+        self.logger.setLevel(logging_level)
         logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     def call_api(self, api_url, api_params, retry_count=1, max_retries=3, sleep_time=2, req_type='get', headers={}, data={}):
