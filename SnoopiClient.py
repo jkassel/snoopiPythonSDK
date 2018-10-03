@@ -54,7 +54,7 @@ class SnoopiClient:
             self.logger.error(response_data)
             response.raise_for_status()
 
-    def get_zip_code_radius(self, origin_zip_code, radius):
+    def get_zip_code_radius(self, origin_zip_code, radius="5"):
         api_url = "zipcoderange/"
         params = origin_zip_code + "-" + radius
         result = self.call_api(api_url, params)
